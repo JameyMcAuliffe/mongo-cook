@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/JameyMcAuliffe/mongo-cook#readme",
   "dependencies": {
+    "angular": "^1.6.4",
+    "angular-route": "^1.6.4",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "materialize-css": "^0.99.0",
     "mongoose": "^4.10.8"
   }
 }
