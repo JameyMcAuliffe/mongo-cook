@@ -4,6 +4,7 @@ let express = require('express')
 let app = express()
 let bodyParser = require('body-parser')
 let mongoose = require('mongoose')
+app.use(bodyParser.json())
 
 let Recipes = require('./models/recipes')
 
@@ -21,6 +22,27 @@ app.get('/recipes', function(req, res) {
 			throw err
 		}
 		res.json(recipes)
+	})
+})
+
+app.get('/recipes/:id', function(req, res) {
+	Recipes.getRecipeById(req.params.id, function(err, recipe) {
+		if(err){
+			throw err
+		}
+		res.json(recipe)
+	})
+})
+
+//Add new Recipe
+app.post('/recipes', function(req, res) {
+
+	let recipe = req.body
+	Recipes.addRecipe(recipe, function(err, recipe) {
+		if(err){
+			throw err
+		}
+		res.json(recipe)
 	})
 })
 
